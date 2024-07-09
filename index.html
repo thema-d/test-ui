@@ -1,0 +1,506 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						'misty-blue': '#8F98FF',
+						'sunset-pink': '#F66986',
+						'golden-apricot': '#FEB976',
+						'midnight-blue': '#0A2540',
+						'light-gray': '#F4F4F4',
+						'charcoal': '#312E30',
+					},
+					fontFamily: {
+						'inter': [ 'Inter', 'sans-serif' ],
+						'work-sans': [ 'Work Sans', 'sans-serif' ],
+					},
+					fontSize: {
+						'14pt': '14px',
+						'18pt': '18px',
+						'26pt': '26px',
+						'36pt': '36px',
+						'56pt': '56px',
+						'84pt': '84px',
+					},
+					lineHeight: {
+						'150': '1.5',
+						'130': '1.3',
+					},
+					letterSpacing: {
+						'0': '0',
+						'-2': '-0.02em',
+					},
+				}
+			}
+		}
+	</script>
+	<style type="text/tailwindcss">
+		@layer utilities {
+			.subtext {
+				@apply font-inter font-semibold text-14pt leading-[1.5] tracking-[0];
+			}
+			.paragraph {
+				@apply font-inter font-normal text-18pt leading-[1.5] tracking-[0];
+			}
+			.subheader {
+				@apply font-work-sans font-semibold text-18pt leading-[1.3] tracking-[-0.02em];
+			}
+			.heading-2 {
+				@apply font-work-sans font-semibold text-26pt leading-[1.3] tracking-[-0.02em];
+			}
+			.heading-1 {
+				@apply font-work-sans font-semibold text-36pt leading-[1.3] tracking-[-0.02em];
+			}
+			.title-2 {
+				@apply font-work-sans font-bold text-56pt leading-[1.3] tracking-[-0.02em];
+			}
+			.title-1 {
+				@apply font-work-sans font-bold text-84pt leading-[1.3] tracking-[-0.02em];
+			}
+
+			.received-message-text {
+				@apply bg-light-gray text-charcoal rounded-tr-lg rounded-br-lg rounded-sm px-2.5 py-1.5 !text-[9px] max-w-[calc(4/5*100%)];
+				@apply last:rounded-bl-lg;
+			}
+
+			.sent-message-text {
+				@apply text-white rounded-tl-lg rounded-bl-lg rounded-sm px-2.5 py-1.5 !text-[9px] max-w-[calc(4/5*100%)];
+				@apply first:rounded-tr-lg;
+			}
+
+			.card-1 {
+				.sent-message-text {
+					@apply bg-misty-blue;
+				}
+			}
+
+			.card-2 {
+				.sent-message-text {
+					@apply bg-sunset-pink;
+				}
+			}
+
+			.card-3 {
+				.sent-message-text {
+					@apply bg-golden-apricot;
+				}
+			}
+
+			.card {
+				filter: drop-shadow(0 50px 50px rgb(0 0 0 / 0.03)) drop-shadow(5px 50px 50px rgb(0 0 0 / 0.08));
+				@apply mx-auto;
+			}
+
+			.chat-container {
+				margin-top: 51px;
+				&::before {
+					content: '';
+					@apply absolute -inset-1 bg-red-500 z-[-1] rounded-[20px];
+					/* apply gradient from white to #D5D5D5. top to bottom */
+					background: linear-gradient(180deg, rgba(255,255,255, 0.25) 0%, #D5D5D5 100%);
+				}
+			}
+		}
+	</style>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="md:flex flex-col min-h-screen w-screen items-center justify-center">
+		<div class="mb-5 lg:mb-[60px] p-5">
+			<h1 class="heading-2 lg:heading-1 mb-5 max-w-[1065px] text-left">Use advanced conversational AI chatbots like ChatGPT in your e-commerce shop</h1>
+			<p class="paragraph">Interact with your visitors in conversation 24/7 in their own language.</p>
+		</div>
+		<div class="flex md:flex-row flex-col items-center justify-center gap-7 lg:space-y-0 py-10 px-5 flex-wrap">
+			<!-- Card 1 -->
+			<div class="h-[503px] w-[340px] overflow-hidden rounded-[20px] bg-[#F5F5F5] card card-1">
+				<div class="relative flex h-[358px] justify-center z-0">
+					<div class="absolute inset-x-0 top-[96px] -z-0 h-full bg-misty-blue blur-[88.05px]"></div>
+					<div class="relative h-[480px] w-[268px]  rounded-[20px] bg-white chat-container">
+						<div class="relative">
+							<div class="mx-2 my-1.5 flex h-[30px] items-center rounded-[16px]">
+								<!-- Background shape svg -->
+								<svg width="255" height="31" viewBox="0 0 255 31" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute inset-x-2 inset-y-0">
+									<g filter="url(#filter0_b_25_584)">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M15.8672 0.0200195C7.33444 0.0200195 0.417236 6.93722 0.417236 15.47C0.417236 24.0028 7.33445 30.92 15.8672 30.92H98.4416C103.303 30.92 107.115 26.8891 109.37 22.5825C112.675 16.2732 119.285 11.9681 126.901 11.9681C134.517 11.9681 141.127 16.2731 144.431 22.5824C146.687 26.8891 150.499 30.92 155.36 30.92H238.759C247.292 30.92 254.209 24.0028 254.209 15.47C254.209 6.93722 247.292 0.0200195 238.759 0.0200195H15.8672Z"
+											class="fill-misty-blue" fill-opacity="0.8" />
+									</g>
+									<defs>
+										<filter id="filter0_b_25_584" x="-3.70276" y="-4.09998" width="262.032" height="39.1399" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+											<feFlood flood-opacity="0" result="BackgroundImageFix" />
+											<feGaussianBlur in="BackgroundImageFix" stdDeviation="2.06" />
+											<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_25_584" />
+											<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_25_584" result="shape" />
+										</filter>
+									</defs>
+								</svg>
+								<!-- Background shape svg -->
+
+								<p class="z-2 relative m-2 flex grow items-center !text-[9px] text-white subtext">Customer Support AI</p>
+
+								<!-- Message Plus Icon -->
+								<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative mr-2">
+									<path fill-rule="evenodd" clip-rule="evenodd"
+										d="M15.0519 7.10728C15.0519 11.6378 12.5053 14.1863 7.97799 14.1863C6.64473 14.1863 5.48324 13.9653 4.50799 13.5377L1.17722 14.6487C0.709386 14.8047 0.268277 14.3513 0.436802 13.8875L1.60002 10.6863C1.14145 9.68877 0.904102 8.49038 0.904102 7.10728C0.904102 2.57674 3.45071 0.0283203 7.97799 0.0283203C12.5053 0.0283203 15.0519 2.57674 15.0519 7.10728ZM8.51041 3.5423C8.51041 3.23398 8.26047 2.98404 7.95215 2.98404C7.64383 2.98404 7.39389 3.23398 7.39389 3.5423V6.79594L4.14027 6.79594C3.83196 6.79594 3.58201 7.04588 3.58201 7.3542C3.58201 7.66252 3.83196 7.91246 4.14027 7.91246L7.39389 7.91246L7.39389 11.1658C7.39389 11.4741 7.64383 11.7241 7.95215 11.7241C8.26047 11.7241 8.51041 11.4741 8.51041 11.1658V7.91246L11.7638 7.91246C12.0721 7.91245 12.322 7.66251 12.322 7.35419C12.322 7.04588 12.0721 6.79593 11.7638 6.79593L8.51041 6.79594V3.5423Z"
+										fill="white" />
+								</svg>
+								<!-- Message Plus Icon -->
+							</div>
+							<!-- ligthening bolt icon -->
+							<div class="z-2 absolute left-1/2 flex h-8 w-8 -translate-x-[48%] -translate-y-[56%] transform items-center justify-center rounded-full border-white bg-misty-blue">
+								<svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M5.903 9.46939L1.77113 10.3864C0.480936 10.5678 -0.0471324 9.25126 0.561693 8.42485C2.64915 5.59137 6.4446 1.78073 8.17228 0.200398C8.62777 -0.0290121 9.12733 0.340627 9.09438 0.849401L8.07122 6.17425C9.33189 6.22097 11.3896 5.74135 12.5333 5.9401C13.3221 6.07718 13.7241 6.90066 13.3554 7.61107C11.3245 10.3864 7.52901 14.4121 5.0507 17.2295C4.27645 18.1097 3.73424 17.7072 3.73424 16.6089C3.73424 14.9613 5.42595 11.4381 5.903 9.46939Z"
+										fill="white" />
+								</svg>
+							</div>
+							<!-- ligthening bolt icon -->
+
+							<!-- Chat content -->
+							<div class="px-4 mt-7">
+								<div class="max-w-full space-y-2">
+									<!-- Received message -->
+									<div>
+										<div class="received-message-text relative paragraph">
+											<!-- Message star icon -->
+											<svg class="absolute top-0 -left-1.5" width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M4.94984 3.26368C5.08851 2.78952 5.76021 2.78952 5.89887 3.26368L6.56031 5.52542C6.60765 5.68726 6.73421 5.81383 6.89606 5.86116L9.1578 6.5226C9.63196 6.66127 9.63196 7.33296 9.1578 7.47163L6.89606 8.13307C6.73421 8.1804 6.60765 8.30696 6.56031 8.46881L5.89887 10.7306C5.76021 11.2047 5.08851 11.2047 4.94985 10.7306L4.2884 8.46881C4.24107 8.30696 4.11451 8.1804 3.95266 8.13307L1.69092 7.47163C1.21676 7.33296 1.21676 6.66127 1.69092 6.5226L3.95266 5.86116C4.11451 5.81383 4.24107 5.68726 4.2884 5.52542L4.94984 3.26368Z"
+													fill="#797878" />
+												<path
+													d="M9.09925 10.0293C9.16112 9.77867 9.51737 9.77867 9.57923 10.0293L9.7521 10.7295C9.77411 10.8187 9.84371 10.8883 9.93285 10.9103L10.6331 11.0831C10.8837 11.145 10.8837 11.5013 10.6331 11.5631L9.93285 11.736C9.84371 11.758 9.77411 11.8276 9.7521 11.9167L9.57923 12.617C9.51737 12.8676 9.16112 12.8676 9.09925 12.617L8.92638 11.9167C8.90438 11.8276 8.83478 11.758 8.74564 11.736L8.04538 11.5631C7.79479 11.5013 7.79479 11.145 8.04538 11.0831L8.74564 10.9103C8.83478 10.8883 8.90438 10.8187 8.92638 10.7295L9.09925 10.0293Z"
+													fill="#797878" />
+												<path
+													d="M9.09925 1.37742C9.16112 1.12682 9.51737 1.12682 9.57923 1.37742L9.7521 2.07767C9.77411 2.16681 9.84371 2.23641 9.93285 2.25841L10.6331 2.43128C10.8837 2.49315 10.8837 2.8494 10.6331 2.91126L9.93285 3.08413C9.84371 3.10614 9.77411 3.17574 9.7521 3.26488L9.57923 3.96513C9.51737 4.21573 9.16112 4.21573 9.09925 3.96513L8.92638 3.26488C8.90438 3.17574 8.83478 3.10614 8.74564 3.08413L8.04538 2.91126C7.79479 2.8494 7.79479 2.49315 8.04538 2.43128L8.74564 2.25841C8.83478 2.23641 8.90438 2.16681 8.92638 2.07767L9.09925 1.37742Z"
+													fill="#797878" />
+											</svg>
+											<!-- Message star icon -->
+
+											How can we assist you today?
+										</div>
+									</div>
+
+									<!-- Sent message -->
+									<div class="flex flex-col items-end space-y-[3px]">
+										<div class="sent-message-text paragraph">
+											What kind of products are you selling?
+										</div>
+									</div>
+
+									<!-- Received message -->
+									<div class="space-y-[3px]">
+										<div class="received-message-text relative paragraph">
+											<!-- Message star icon -->
+											<svg class="absolute top-0 -left-1.5" width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M4.94984 3.26368C5.08851 2.78952 5.76021 2.78952 5.89887 3.26368L6.56031 5.52542C6.60765 5.68726 6.73421 5.81383 6.89606 5.86116L9.1578 6.5226C9.63196 6.66127 9.63196 7.33296 9.1578 7.47163L6.89606 8.13307C6.73421 8.1804 6.60765 8.30696 6.56031 8.46881L5.89887 10.7306C5.76021 11.2047 5.08851 11.2047 4.94985 10.7306L4.2884 8.46881C4.24107 8.30696 4.11451 8.1804 3.95266 8.13307L1.69092 7.47163C1.21676 7.33296 1.21676 6.66127 1.69092 6.5226L3.95266 5.86116C4.11451 5.81383 4.24107 5.68726 4.2884 5.52542L4.94984 3.26368Z"
+													fill="#797878" />
+												<path
+													d="M9.09925 10.0293C9.16112 9.77867 9.51737 9.77867 9.57923 10.0293L9.7521 10.7295C9.77411 10.8187 9.84371 10.8883 9.93285 10.9103L10.6331 11.0831C10.8837 11.145 10.8837 11.5013 10.6331 11.5631L9.93285 11.736C9.84371 11.758 9.77411 11.8276 9.7521 11.9167L9.57923 12.617C9.51737 12.8676 9.16112 12.8676 9.09925 12.617L8.92638 11.9167C8.90438 11.8276 8.83478 11.758 8.74564 11.736L8.04538 11.5631C7.79479 11.5013 7.79479 11.145 8.04538 11.0831L8.74564 10.9103C8.83478 10.8883 8.90438 10.8187 8.92638 10.7295L9.09925 10.0293Z"
+													fill="#797878" />
+												<path
+													d="M9.09925 1.37742C9.16112 1.12682 9.51737 1.12682 9.57923 1.37742L9.7521 2.07767C9.77411 2.16681 9.84371 2.23641 9.93285 2.25841L10.6331 2.43128C10.8837 2.49315 10.8837 2.8494 10.6331 2.91126L9.93285 3.08413C9.84371 3.10614 9.77411 3.17574 9.7521 3.26488L9.57923 3.96513C9.51737 4.21573 9.16112 4.21573 9.09925 3.96513L8.92638 3.26488C8.90438 3.17574 8.83478 3.10614 8.74564 3.08413L8.04538 2.91126C7.79479 2.8494 7.79479 2.49315 8.04538 2.43128L8.74564 2.25841C8.83478 2.23641 8.90438 2.16681 8.92638 2.07767L9.09925 1.37742Z"
+													fill="#797878" />
+											</svg>
+											<!-- Message star icon -->
+											We offer a wide range of fragrances including perfumes, colognes, and other scented products.
+										</div>
+
+										<div class="received-message-text relative paragraph">
+											Whether you're looking for something fresh for daily wear or a unique scent for special occasions, we've got you covered! If you need help finding something
+											specific, just let me know what you're looking for!
+										</div>
+									</div>
+
+									<!-- Sent message -->
+									<div class="flex justify-end">
+										<div class="sent-message-text paragraph">
+											I'm looking for a man perfume.
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<!-- Chat content -->
+						</div>
+					</div>
+				</div>
+				<div class="relative z-0 flex h-[145px] flex-col items-start justify-between bg-white p-5">
+					<p class="subheader text-charcoal">Customer support AI chatbot</p>
+					<button class="inline-flex items-center">
+						<span class="subtext !font-normal text-midnight-blue">Build a Customer Support AI</span>
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="ml-1 h-4 w-4">
+							<path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+						</svg>
+					</button>
+				</div>
+			</div>
+			<!-- Card 1 -->
+
+			<!-- Card 2 -->
+			<div class="h-[503px] w-[340px] overflow-hidden rounded-[20px] bg-[#F5F5F5] card card-2">
+				<div class="relative flex h-[358px] justify-center">
+					<div class="absolute inset-x-0 top-[96px] -z-0 h-full bg-sunset-pink blur-[88.05px]"></div>
+					<div class="z-1 relative h-[480px] w-[268px] rounded-[20px] bg-white chat-container">
+						<div class="relative">
+							<div class="mx-2 my-1.5 flex h-[30px] items-center rounded-[16px]">
+								<!-- Background shape svg -->
+								<svg width="255" height="31" viewBox="0 0 255 31" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute inset-x-2 inset-y-0">
+									<g filter="url(#filter0_b_25_584)">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M15.8672 0.0200195C7.33444 0.0200195 0.417236 6.93722 0.417236 15.47C0.417236 24.0028 7.33445 30.92 15.8672 30.92H98.4416C103.303 30.92 107.115 26.8891 109.37 22.5825C112.675 16.2732 119.285 11.9681 126.901 11.9681C134.517 11.9681 141.127 16.2731 144.431 22.5824C146.687 26.8891 150.499 30.92 155.36 30.92H238.759C247.292 30.92 254.209 24.0028 254.209 15.47C254.209 6.93722 247.292 0.0200195 238.759 0.0200195H15.8672Z"
+											class="fill-sunset-pink" fill-opacity="0.8" />
+									</g>
+									<defs>
+										<filter id="filter0_b_25_584" x="-3.70276" y="-4.09998" width="262.032" height="39.1399" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+											<feFlood flood-opacity="0" result="BackgroundImageFix" />
+											<feGaussianBlur in="BackgroundImageFix" stdDeviation="2.06" />
+											<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_25_584" />
+											<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_25_584" result="shape" />
+										</filter>
+									</defs>
+								</svg>
+								<!-- Background shape svg -->
+
+								<p class="z-2 relative m-2 flex grow items-center !text-[9px] text-white subtext">Product Search AI</p>
+
+								<!-- Message Plus Icon -->
+								<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative mr-2">
+									<path fill-rule="evenodd" clip-rule="evenodd"
+										d="M15.0519 7.10728C15.0519 11.6378 12.5053 14.1863 7.97799 14.1863C6.64473 14.1863 5.48324 13.9653 4.50799 13.5377L1.17722 14.6487C0.709386 14.8047 0.268277 14.3513 0.436802 13.8875L1.60002 10.6863C1.14145 9.68877 0.904102 8.49038 0.904102 7.10728C0.904102 2.57674 3.45071 0.0283203 7.97799 0.0283203C12.5053 0.0283203 15.0519 2.57674 15.0519 7.10728ZM8.51041 3.5423C8.51041 3.23398 8.26047 2.98404 7.95215 2.98404C7.64383 2.98404 7.39389 3.23398 7.39389 3.5423V6.79594L4.14027 6.79594C3.83196 6.79594 3.58201 7.04588 3.58201 7.3542C3.58201 7.66252 3.83196 7.91246 4.14027 7.91246L7.39389 7.91246L7.39389 11.1658C7.39389 11.4741 7.64383 11.7241 7.95215 11.7241C8.26047 11.7241 8.51041 11.4741 8.51041 11.1658V7.91246L11.7638 7.91246C12.0721 7.91245 12.322 7.66251 12.322 7.35419C12.322 7.04588 12.0721 6.79593 11.7638 6.79593L8.51041 6.79594V3.5423Z"
+										fill="white" />
+								</svg>
+								<!-- Message Plus Icon -->
+							</div>
+							<!-- ligthening bolt icon -->
+							<div class="z-2 absolute left-1/2 flex h-8 w-8 -translate-x-[48%] -translate-y-[56%] transform items-center justify-center rounded-full border-white bg-sunset-pink">
+								<svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M5.903 9.46939L1.77113 10.3864C0.480936 10.5678 -0.0471324 9.25126 0.561693 8.42485C2.64915 5.59137 6.4446 1.78073 8.17228 0.200398C8.62777 -0.0290121 9.12733 0.340627 9.09438 0.849401L8.07122 6.17425C9.33189 6.22097 11.3896 5.74135 12.5333 5.9401C13.3221 6.07718 13.7241 6.90066 13.3554 7.61107C11.3245 10.3864 7.52901 14.4121 5.0507 17.2295C4.27645 18.1097 3.73424 17.7072 3.73424 16.6089C3.73424 14.9613 5.42595 11.4381 5.903 9.46939Z"
+										fill="white" />
+								</svg>
+							</div>
+							<!-- ligthening bolt icon -->
+
+							<!-- Chat content -->
+							<div class="px-4 mt-7">
+								<div class="max-w-full space-y-2">
+									<!-- Received message -->
+									<div>
+										<div class="received-message-text relative paragraph">
+											<!-- Message star icon -->
+											<svg class="absolute top-0 -left-1.5" width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M4.94984 3.26368C5.08851 2.78952 5.76021 2.78952 5.89887 3.26368L6.56031 5.52542C6.60765 5.68726 6.73421 5.81383 6.89606 5.86116L9.1578 6.5226C9.63196 6.66127 9.63196 7.33296 9.1578 7.47163L6.89606 8.13307C6.73421 8.1804 6.60765 8.30696 6.56031 8.46881L5.89887 10.7306C5.76021 11.2047 5.08851 11.2047 4.94985 10.7306L4.2884 8.46881C4.24107 8.30696 4.11451 8.1804 3.95266 8.13307L1.69092 7.47163C1.21676 7.33296 1.21676 6.66127 1.69092 6.5226L3.95266 5.86116C4.11451 5.81383 4.24107 5.68726 4.2884 5.52542L4.94984 3.26368Z"
+													fill="#797878" />
+												<path
+													d="M9.09925 10.0293C9.16112 9.77867 9.51737 9.77867 9.57923 10.0293L9.7521 10.7295C9.77411 10.8187 9.84371 10.8883 9.93285 10.9103L10.6331 11.0831C10.8837 11.145 10.8837 11.5013 10.6331 11.5631L9.93285 11.736C9.84371 11.758 9.77411 11.8276 9.7521 11.9167L9.57923 12.617C9.51737 12.8676 9.16112 12.8676 9.09925 12.617L8.92638 11.9167C8.90438 11.8276 8.83478 11.758 8.74564 11.736L8.04538 11.5631C7.79479 11.5013 7.79479 11.145 8.04538 11.0831L8.74564 10.9103C8.83478 10.8883 8.90438 10.8187 8.92638 10.7295L9.09925 10.0293Z"
+													fill="#797878" />
+												<path
+													d="M9.09925 1.37742C9.16112 1.12682 9.51737 1.12682 9.57923 1.37742L9.7521 2.07767C9.77411 2.16681 9.84371 2.23641 9.93285 2.25841L10.6331 2.43128C10.8837 2.49315 10.8837 2.8494 10.6331 2.91126L9.93285 3.08413C9.84371 3.10614 9.77411 3.17574 9.7521 3.26488L9.57923 3.96513C9.51737 4.21573 9.16112 4.21573 9.09925 3.96513L8.92638 3.26488C8.90438 3.17574 8.83478 3.10614 8.74564 3.08413L8.04538 2.91126C7.79479 2.8494 7.79479 2.49315 8.04538 2.43128L8.74564 2.25841C8.83478 2.23641 8.90438 2.16681 8.92638 2.07767L9.09925 1.37742Z"
+													fill="#797878" />
+											</svg>
+											<!-- Message star icon -->
+
+											How can we assist you today?
+										</div>
+									</div>
+
+									<!-- Sent message -->
+									<div class="flex flex-col items-end space-y-[3px]">
+										<div class="sent-message-text paragraph">
+											What kind of products are you selling?
+										</div>
+									</div>
+
+									<!-- Received message -->
+									<div class="space-y-[3px]">
+										<div class="received-message-text relative paragraph">
+											<!-- Message star icon -->
+											<svg class="absolute top-0 -left-1.5" width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M4.94984 3.26368C5.08851 2.78952 5.76021 2.78952 5.89887 3.26368L6.56031 5.52542C6.60765 5.68726 6.73421 5.81383 6.89606 5.86116L9.1578 6.5226C9.63196 6.66127 9.63196 7.33296 9.1578 7.47163L6.89606 8.13307C6.73421 8.1804 6.60765 8.30696 6.56031 8.46881L5.89887 10.7306C5.76021 11.2047 5.08851 11.2047 4.94985 10.7306L4.2884 8.46881C4.24107 8.30696 4.11451 8.1804 3.95266 8.13307L1.69092 7.47163C1.21676 7.33296 1.21676 6.66127 1.69092 6.5226L3.95266 5.86116C4.11451 5.81383 4.24107 5.68726 4.2884 5.52542L4.94984 3.26368Z"
+													fill="#797878" />
+												<path
+													d="M9.09925 10.0293C9.16112 9.77867 9.51737 9.77867 9.57923 10.0293L9.7521 10.7295C9.77411 10.8187 9.84371 10.8883 9.93285 10.9103L10.6331 11.0831C10.8837 11.145 10.8837 11.5013 10.6331 11.5631L9.93285 11.736C9.84371 11.758 9.77411 11.8276 9.7521 11.9167L9.57923 12.617C9.51737 12.8676 9.16112 12.8676 9.09925 12.617L8.92638 11.9167C8.90438 11.8276 8.83478 11.758 8.74564 11.736L8.04538 11.5631C7.79479 11.5013 7.79479 11.145 8.04538 11.0831L8.74564 10.9103C8.83478 10.8883 8.90438 10.8187 8.92638 10.7295L9.09925 10.0293Z"
+													fill="#797878" />
+												<path
+													d="M9.09925 1.37742C9.16112 1.12682 9.51737 1.12682 9.57923 1.37742L9.7521 2.07767C9.77411 2.16681 9.84371 2.23641 9.93285 2.25841L10.6331 2.43128C10.8837 2.49315 10.8837 2.8494 10.6331 2.91126L9.93285 3.08413C9.84371 3.10614 9.77411 3.17574 9.7521 3.26488L9.57923 3.96513C9.51737 4.21573 9.16112 4.21573 9.09925 3.96513L8.92638 3.26488C8.90438 3.17574 8.83478 3.10614 8.74564 3.08413L8.04538 2.91126C7.79479 2.8494 7.79479 2.49315 8.04538 2.43128L8.74564 2.25841C8.83478 2.23641 8.90438 2.16681 8.92638 2.07767L9.09925 1.37742Z"
+													fill="#797878" />
+											</svg>
+											<!-- Message star icon -->
+											We offer a wide range of fragrances including perfumes, colognes, and other scented products.
+										</div>
+
+										<div class="received-message-text relative paragraph">
+											Whether you're looking for something fresh for daily wear or a unique scent for special occasions, we've got you covered! If you need help finding something
+											specific, just let me know what you're looking for!
+										</div>
+									</div>
+
+									<!-- Sent message -->
+									<div class="flex justify-end">
+										<div class="sent-message-text paragraph">
+											I'm looking for a man perfume.
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<!-- Chat content -->
+						</div>
+					</div>
+				</div>
+				<div class="relative z-0 flex h-[145px] flex-col items-start justify-between bg-white p-5">
+					<p class="subheader text-charcoal">Product seller AI chatbot</p>
+					<button class="inline-flex items-center">
+						<span class="subtext !font-normal text-midnight-blue">Build a Product Seller AI</span>
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="ml-1 h-4 w-4">
+							<path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+						</svg>
+					</button>
+				</div>
+			</div>
+			<!-- Card 2 -->
+
+			<!-- Card 3 -->
+			<div class="h-[503px] w-[340px] overflow-hidden rounded-[20px] bg-[#F5F5F5] card card-3">
+				<div class="relative flex h-[358px] justify-center">
+					<div class="absolute inset-x-0 top-[96px] -z-0 h-full bg-golden-apricot blur-[88.05px]"></div>
+					<div class="z-1 relative h-[480px] w-[268px] rounded-[20px] bg-white chat-container">
+						<div class="relative">
+							<div class="mx-2 my-1.5 flex h-[30px] items-center rounded-[16px]">
+								<!-- Background shape svg -->
+								<svg width="255" height="31" viewBox="0 0 255 31" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute inset-x-2 inset-y-0">
+									<g filter="url(#filter0_b_25_584)">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M15.8672 0.0200195C7.33444 0.0200195 0.417236 6.93722 0.417236 15.47C0.417236 24.0028 7.33445 30.92 15.8672 30.92H98.4416C103.303 30.92 107.115 26.8891 109.37 22.5825C112.675 16.2732 119.285 11.9681 126.901 11.9681C134.517 11.9681 141.127 16.2731 144.431 22.5824C146.687 26.8891 150.499 30.92 155.36 30.92H238.759C247.292 30.92 254.209 24.0028 254.209 15.47C254.209 6.93722 247.292 0.0200195 238.759 0.0200195H15.8672Z"
+											class="fill-golden-apricot" fill-opacity="0.8" />
+									</g>
+									<defs>
+										<filter id="filter0_b_25_584" x="-3.70276" y="-4.09998" width="262.032" height="39.1399" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+											<feFlood flood-opacity="0" result="BackgroundImageFix" />
+											<feGaussianBlur in="BackgroundImageFix" stdDeviation="2.06" />
+											<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_25_584" />
+											<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_25_584" result="shape" />
+										</filter>
+									</defs>
+								</svg>
+								<!-- Background shape svg -->
+
+								<p class="z-2 relative m-2 flex grow items-center !text-[9px] text-white subtext">Linguist AI</p>
+
+								<!-- Message Plus Icon -->
+								<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative mr-2">
+									<path fill-rule="evenodd" clip-rule="evenodd"
+										d="M15.0519 7.10728C15.0519 11.6378 12.5053 14.1863 7.97799 14.1863C6.64473 14.1863 5.48324 13.9653 4.50799 13.5377L1.17722 14.6487C0.709386 14.8047 0.268277 14.3513 0.436802 13.8875L1.60002 10.6863C1.14145 9.68877 0.904102 8.49038 0.904102 7.10728C0.904102 2.57674 3.45071 0.0283203 7.97799 0.0283203C12.5053 0.0283203 15.0519 2.57674 15.0519 7.10728ZM8.51041 3.5423C8.51041 3.23398 8.26047 2.98404 7.95215 2.98404C7.64383 2.98404 7.39389 3.23398 7.39389 3.5423V6.79594L4.14027 6.79594C3.83196 6.79594 3.58201 7.04588 3.58201 7.3542C3.58201 7.66252 3.83196 7.91246 4.14027 7.91246L7.39389 7.91246L7.39389 11.1658C7.39389 11.4741 7.64383 11.7241 7.95215 11.7241C8.26047 11.7241 8.51041 11.4741 8.51041 11.1658V7.91246L11.7638 7.91246C12.0721 7.91245 12.322 7.66251 12.322 7.35419C12.322 7.04588 12.0721 6.79593 11.7638 6.79593L8.51041 6.79594V3.5423Z"
+										fill="white" />
+								</svg>
+								<!-- Message Plus Icon -->
+							</div>
+							<!-- ligthening bolt icon -->
+							<div
+								class="z-2 absolute left-1/2 flex h-8 w-8 -translate-x-[48%] -translate-y-[56%] transform items-center justify-center rounded-full border-white bg-golden-apricot">
+								<svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M5.903 9.46939L1.77113 10.3864C0.480936 10.5678 -0.0471324 9.25126 0.561693 8.42485C2.64915 5.59137 6.4446 1.78073 8.17228 0.200398C8.62777 -0.0290121 9.12733 0.340627 9.09438 0.849401L8.07122 6.17425C9.33189 6.22097 11.3896 5.74135 12.5333 5.9401C13.3221 6.07718 13.7241 6.90066 13.3554 7.61107C11.3245 10.3864 7.52901 14.4121 5.0507 17.2295C4.27645 18.1097 3.73424 17.7072 3.73424 16.6089C3.73424 14.9613 5.42595 11.4381 5.903 9.46939Z"
+										fill="white" />
+								</svg>
+							</div>
+							<!-- ligthening bolt icon -->
+
+							<!-- Chat content -->
+							<div class="px-4 mt-7">
+								<div class="max-w-full space-y-2">
+									<!-- Received message -->
+									<div>
+										<div class="received-message-text relative paragraph">
+											<!-- Message star icon -->
+											<svg class="absolute top-0 -left-1.5" width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M4.94984 3.26368C5.08851 2.78952 5.76021 2.78952 5.89887 3.26368L6.56031 5.52542C6.60765 5.68726 6.73421 5.81383 6.89606 5.86116L9.1578 6.5226C9.63196 6.66127 9.63196 7.33296 9.1578 7.47163L6.89606 8.13307C6.73421 8.1804 6.60765 8.30696 6.56031 8.46881L5.89887 10.7306C5.76021 11.2047 5.08851 11.2047 4.94985 10.7306L4.2884 8.46881C4.24107 8.30696 4.11451 8.1804 3.95266 8.13307L1.69092 7.47163C1.21676 7.33296 1.21676 6.66127 1.69092 6.5226L3.95266 5.86116C4.11451 5.81383 4.24107 5.68726 4.2884 5.52542L4.94984 3.26368Z"
+													fill="#797878" />
+												<path
+													d="M9.09925 10.0293C9.16112 9.77867 9.51737 9.77867 9.57923 10.0293L9.7521 10.7295C9.77411 10.8187 9.84371 10.8883 9.93285 10.9103L10.6331 11.0831C10.8837 11.145 10.8837 11.5013 10.6331 11.5631L9.93285 11.736C9.84371 11.758 9.77411 11.8276 9.7521 11.9167L9.57923 12.617C9.51737 12.8676 9.16112 12.8676 9.09925 12.617L8.92638 11.9167C8.90438 11.8276 8.83478 11.758 8.74564 11.736L8.04538 11.5631C7.79479 11.5013 7.79479 11.145 8.04538 11.0831L8.74564 10.9103C8.83478 10.8883 8.90438 10.8187 8.92638 10.7295L9.09925 10.0293Z"
+													fill="#797878" />
+												<path
+													d="M9.09925 1.37742C9.16112 1.12682 9.51737 1.12682 9.57923 1.37742L9.7521 2.07767C9.77411 2.16681 9.84371 2.23641 9.93285 2.25841L10.6331 2.43128C10.8837 2.49315 10.8837 2.8494 10.6331 2.91126L9.93285 3.08413C9.84371 3.10614 9.77411 3.17574 9.7521 3.26488L9.57923 3.96513C9.51737 4.21573 9.16112 4.21573 9.09925 3.96513L8.92638 3.26488C8.90438 3.17574 8.83478 3.10614 8.74564 3.08413L8.04538 2.91126C7.79479 2.8494 7.79479 2.49315 8.04538 2.43128L8.74564 2.25841C8.83478 2.23641 8.90438 2.16681 8.92638 2.07767L9.09925 1.37742Z"
+													fill="#797878" />
+											</svg>
+											<!-- Message star icon -->
+
+											How can we assist you today?
+										</div>
+									</div>
+
+									<!-- Sent message -->
+									<div class="flex flex-col items-end space-y-[3px]">
+										<div class="sent-message-text paragraph">
+											What kind of products are you selling?
+										</div>
+									</div>
+
+									<!-- Received message -->
+									<div class="space-y-[3px]">
+										<div class="received-message-text relative paragraph">
+											<!-- Message star icon -->
+											<svg class="absolute top-0 -left-1.5" width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M4.94984 3.26368C5.08851 2.78952 5.76021 2.78952 5.89887 3.26368L6.56031 5.52542C6.60765 5.68726 6.73421 5.81383 6.89606 5.86116L9.1578 6.5226C9.63196 6.66127 9.63196 7.33296 9.1578 7.47163L6.89606 8.13307C6.73421 8.1804 6.60765 8.30696 6.56031 8.46881L5.89887 10.7306C5.76021 11.2047 5.08851 11.2047 4.94985 10.7306L4.2884 8.46881C4.24107 8.30696 4.11451 8.1804 3.95266 8.13307L1.69092 7.47163C1.21676 7.33296 1.21676 6.66127 1.69092 6.5226L3.95266 5.86116C4.11451 5.81383 4.24107 5.68726 4.2884 5.52542L4.94984 3.26368Z"
+													fill="#797878" />
+												<path
+													d="M9.09925 10.0293C9.16112 9.77867 9.51737 9.77867 9.57923 10.0293L9.7521 10.7295C9.77411 10.8187 9.84371 10.8883 9.93285 10.9103L10.6331 11.0831C10.8837 11.145 10.8837 11.5013 10.6331 11.5631L9.93285 11.736C9.84371 11.758 9.77411 11.8276 9.7521 11.9167L9.57923 12.617C9.51737 12.8676 9.16112 12.8676 9.09925 12.617L8.92638 11.9167C8.90438 11.8276 8.83478 11.758 8.74564 11.736L8.04538 11.5631C7.79479 11.5013 7.79479 11.145 8.04538 11.0831L8.74564 10.9103C8.83478 10.8883 8.90438 10.8187 8.92638 10.7295L9.09925 10.0293Z"
+													fill="#797878" />
+												<path
+													d="M9.09925 1.37742C9.16112 1.12682 9.51737 1.12682 9.57923 1.37742L9.7521 2.07767C9.77411 2.16681 9.84371 2.23641 9.93285 2.25841L10.6331 2.43128C10.8837 2.49315 10.8837 2.8494 10.6331 2.91126L9.93285 3.08413C9.84371 3.10614 9.77411 3.17574 9.7521 3.26488L9.57923 3.96513C9.51737 4.21573 9.16112 4.21573 9.09925 3.96513L8.92638 3.26488C8.90438 3.17574 8.83478 3.10614 8.74564 3.08413L8.04538 2.91126C7.79479 2.8494 7.79479 2.49315 8.04538 2.43128L8.74564 2.25841C8.83478 2.23641 8.90438 2.16681 8.92638 2.07767L9.09925 1.37742Z"
+													fill="#797878" />
+											</svg>
+											<!-- Message star icon -->
+											We offer a wide range of fragrances including perfumes, colognes, and other scented products.
+										</div>
+
+										<div class="received-message-text relative paragraph">
+											Whether you're looking for something fresh for daily wear or a unique scent for special occasions, we've got you covered! If you need help finding something
+											specific, just let me know what you're looking for!
+										</div>
+									</div>
+
+									<!-- Sent message -->
+									<div class="flex justify-end">
+										<div class="sent-message-text paragraph">
+											I'm looking for a man perfume.
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<!-- Chat content -->
+						</div>
+					</div>
+				</div>
+				<div class="relative z-0 flex h-[145px] flex-col items-start justify-between bg-white p-5">
+					<p class="subheader text-charcoal">Lead generator AI chatbot</p>
+					<button class="inline-flex items-center">
+						<span class="subtext !font-normal text-midnight-blue">Build a Lead Generator AI</span>
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="ml-1 h-4 w-4">
+							<path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+						</svg>
+					</button>
+				</div>
+			</div>
+			<!-- Card 3 -->
+		</div>
+	</div>
+</body>
+
+</html>
